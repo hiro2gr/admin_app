@@ -1,0 +1,9 @@
+<h1>商品一覧</h1>
+
+<%= form_tag("/search")  %>
+
+<%= link_to "新商品追加", "/products/new" %><br><br>
+
+<% @items.each do |item| %>
+    商品名： <%= item.name %>　<%= link_to "削除", "/products/#{item.id}/destroy", method: :post%>　<%= link_to "編集", "/products/#{item.id}/edit", method: :post%><br>
+<% end %>
